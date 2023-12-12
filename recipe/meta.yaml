@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "0.15.0" %}
+{% set version = "0.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: 20d676402cbe5cab15990b962a86fc3354299a11f51a2431a0ac80dbbaec651f
+  sha256: 48331a1ec0e7d8eafc57dae1ccfeef8e5be1e726f3d90bf2210ce8877badf716
 
 build:
   noarch: python
@@ -34,23 +34,39 @@ requirements:
     - google-cloud-resource-manager >=1.10.3
     - google-cloud-storage >=2.0.0
     - ibis-framework >=6.2.0,<7.0.0
-    - pandas >=1.5.0
+    - pandas >=1.5.0,<2.1.4
     - pydata-google-auth >=1.8.2
     - scikit-learn >=1.2.2
     - sqlalchemy >=1.4,<3.0
     - tabulate >=0.9.0
     - ipywidgets >=7.7.1
     - humanize >=4.6.0
+#ibis-framework 6.2.0 has requirement pyarrow<13,>=2, but you have pyarrow 14.0.1.
+#ibis-framework 6.2.0 has requirement sqlglot<18,>=10.4.3, but you have sqlglot 20.1.0.
+    - pyarrow >=2,<13
+    - sqlglot >=10.4.3,<18
 
 test:
   imports:
     - bigframes
+    - third_party
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/googleapis/python-bigquery-dataframes
   summary: BigQuery DataFrames -- scalable analytics and machine learning with BigQuery
-  license: Apache-2.0
-  license_file: LICENSE
+  license: BSD-4-Clause AND Apache-2.0 AND BSD-3-Clause
+  license_file:
+    - LICENSE
+    - third_party/bigframes_vendored/ibis/LICENSE.txt
+    - third_party/bigframes_vendored/cpython/LICENSE
+    - third_party/bigframes_vendored/pandas/LICENSE
+    - third_party/bigframes_vendored/google_cloud_bigquery/LICENSE
+    - third_party/bigframes_vendored/xgboost/LICENSE
+    - third_party/bigframes_vendored/sklearn/COPYING
 
 extra:
   recipe-maintainers:
