@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "0.23.0" %}
+{% set version = "0.24.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: 638a36892165f0c128ac5eb35145913872ac6f658f6747efc40dfbcd3bc2ffa3
+  sha256: 21efbbf75d502d8d333e21229d6e2a7c199038047153e18a323ea63a055382ee
 
 build:
   noarch: python
@@ -17,6 +17,7 @@ build:
 requirements:
   host:
     - python >=3.9
+    - setuptools
     - pip
   run:
     - python >=3.9
@@ -24,7 +25,7 @@ requirements:
     - fsspec >=2023.3.0
     - gcsfs >=2023.3.0
     - geopandas >=0.12.2
-    - google-auth >2.15.0,<3.0
+    - google-auth >=2.15.0,<3.0
     - google-cloud-bigquery-core >=3.10.0
 # ModuleNotFoundError: No module named 'google.cloud.bigquery_storage_v1'
     - google-cloud-bigquery-storage >=2.0.0
@@ -33,9 +34,9 @@ requirements:
     - google-cloud-iam >=2.12.1
     - google-cloud-resource-manager >=1.10.3
     - google-cloud-storage >=2.0.0
-    - ibis-framework-core >=8.0.0,<9.0.0
-#ibis-framework 7.2.0 has requirement pins[gcs]<1,>=0.8.3, but you have pins 0.0.0.
     - ibis-framework >=8.0.0,<9.0.0
+#ibis-framework 7.2.0 has requirement pins[gcs]<1,>=0.8.3, but you have pins 0.0.0.
+    - ibis-framework-core >=8.0.0,<9.0.0
     - pins >=0.8.3,<1
 #bigframes 0.18.0 has requirement ibis-framework[bigquery]<7.2.0dev,>=7.1.0, but you have ibis-framework 7.2.0.
     - ibis-bigquery >=8.0.0,<9.0.0
@@ -44,16 +45,17 @@ requirements:
     - requests >=2.27.1
     - scikit-learn >=1.2.2
     - sqlalchemy >=1.4,<3.0
-    - tabulate >=0.9.0
+    - sqlglot >=20.8.0,<=20.11
+    - tabulate >=0.9
     - ipywidgets >=7.7.1
     - humanize >=4.6.0
+    - matplotlib-base >=3.7.1
     - pyarrow >=2
-    - sqlglot >=20.8.0,<=20.11
 
 test:
   imports:
     - bigframes
-    - third_party
+    - bigframes_vendored
   commands:
     - pip check
   requires:
