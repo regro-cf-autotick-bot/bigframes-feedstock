@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: 0fd951c47dedd3a04b48d3cbb2e6f0c28e6b95abbdafcd64d7d4b232c4510ba7
+  sha256: 506e9c4229b249ffb5493a95113054dbd888da1ea1075c3c3b8157b25e580db1
 
 build:
   noarch: python
@@ -50,7 +50,7 @@ requirements:
     - ipywidgets >=7.7.1
     - humanize >=4.6.0
     - matplotlib-base >=3.7.1
-    - pyarrow >=2
+    - pyarrow >=8.0.0
 
 test:
   imports:
