@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "1.5.0" %}
+{% set version = "1.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: 68e3b22bf5d8f072d24eb39868a0a9b3156acb1d0a731c4600be1a808e283da0
+  sha256: 645f2b3b4e38ff037ebb97c947a82c9d654caf6e989aea7efd844bc195512b05
 
 build:
   noarch: python
@@ -20,6 +20,7 @@ requirements:
     - setuptools
     - pip
   run:
+    - jellyfish >=0.8.9
     - python >=3.9
     - cloudpickle >=2.0.0
     - fsspec >=2023.3.0
