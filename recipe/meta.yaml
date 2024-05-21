@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "1.6.0" %}
+{% set version = "1.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: 645f2b3b4e38ff037ebb97c947a82c9d654caf6e989aea7efd844bc195512b05
+  sha256: f7aaf3bbb538f61e3214db503120d2a7129b230cebee0d34f11c41436ca2bf73
 
 build:
   noarch: python
@@ -43,7 +43,7 @@ requirements:
     - jellyfish >=0.8.9
     - pandas >=1.5.0
 #ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 16.0.0
-    - pyarrow >=8.0.0,<16.0
+    - pyarrow >=8.0.0
     - pydata-google-auth >=1.8.2
     - requests >=2.27.1
     - scikit-learn >=1.2.2
