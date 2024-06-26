@@ -26,6 +26,7 @@ requirements:
     - gcsfs >=2023.3.0
     - geopandas >=0.12.2
     - google-auth >=2.15.0,<3.0dev
+    - google-cloud-bigtable >=2.24.0
     - google-cloud-bigquery-core >=3.16.0
 # ModuleNotFoundError: No module named 'google.cloud.bigquery_storage_v1'
     - google-cloud-bigquery-storage >=2.0.0
@@ -53,7 +54,6 @@ requirements:
     - ipywidgets >=7.7.1
     - humanize >=4.6.0
     - matplotlib-base >=3.7.1
-
 
 test:
   imports:
