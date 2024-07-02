@@ -27,6 +27,7 @@ requirements:
     - geopandas >=0.12.2
     - google-auth >=2.15.0,<3.0dev
     - google-cloud-bigtable >=2.24.0
+    - google-cloud-pubsub >=2.21.4
     - google-cloud-bigquery-core >=3.16.0
 # ModuleNotFoundError: No module named 'google.cloud.bigquery_storage_v1'
     - google-cloud-bigquery-storage >=2.0.0
