@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "1.16.0" %}
+{% set version = "1.17.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: ff13c9b49da40a0661fb11eb8176d4f95b6ede23a1ea1943e61e854badb76ca1
+  sha256: 4de24d2266db52120c1746477da15c371f527c1cd41385c4df21a8f5ffa7d0cc
 
 build:
   noarch: python
@@ -38,14 +38,17 @@ requirements:
     - google-cloud-storage >=2.0.0
     - ibis-framework >=8.0.0,<9.0.0dev
 #ibis-framework 7.2.0 has requirement pins[gcs]<1,>=0.8.3, but you have pins 0.0.0.
+#ibis-framework 8.0.0 has requirement atpublic<5,>=2.3, but you have atpublic 5.0.
     - ibis-framework-core >=8.0.0,<9.0.0
     - pins >=0.8.3,<1
+    - atpublic >=2.3,<5
 #bigframes 0.18.0 has requirement ibis-framework[bigquery]<7.2.0dev,>=7.1.0, but you have ibis-framework 7.2.0.
     - ibis-bigquery >=8.0.0,<9.0.0
     - jellyfish >=0.8.9
+    - numpy >=1.24.0
     - pandas >=1.5.0
-#ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 16.0.0
-    - pyarrow >=8.0.0,<16.0
+#ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 17.0.0.
+    - pyarrow >=2,<16.0
     - pydata-google-auth >=1.8.2
     - requests >=2.27.1
     - scikit-learn >=1.2.2
