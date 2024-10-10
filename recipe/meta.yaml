@@ -1,5 +1,5 @@
 {% set name = "bigframes" %}
-{% set version = "1.21.0" %}
+{% set version = "1.22.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
-  sha256: 25df4b65bf33fe62891981e9ae61ea21134aeaa33133d23beb7820c8c1839388
+  sha256: d53d80d5416e06b3fb82b6ad7a5a2805b23e7cfc72fe77bbde61cbecc847de72
 
 build:
   noarch: python
@@ -39,14 +39,16 @@ requirements:
     - ibis-framework >=9.0.0,<=9.2.0
 #ibis-framework 7.2.0 has requirement pins[gcs]<1,>=0.8.3, but you have pins 0.0.0.
 #ibis-framework 8.0.0 has requirement atpublic<5,>=2.3, but you have atpublic 5.0.
+#ibis-framework 9.2.0 has requirement toolz<1,>=0.11, but you have toolz 1.0.0.
     - ibis-framework-core >=9.0.0,<=9.2.0
     - pins >=0.8.3,<1
     - atpublic >=2.3,<5
+    - toolz >=0.1,<1
 #bigframes 0.18.0 has requirement ibis-framework[bigquery]<7.2.0dev,>=7.1.0, but you have ibis-framework 7.2.0.
     - ibis-bigquery >=9.0.0,<=9.2.0
     - jellyfish >=0.8.9
     - numpy >=1.24.0
-    - pandas >=1.5.0
+    - pandas >=1.5.3
 #ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 17.0.0.
     - pyarrow >=10.0.1,<18.0
     - pydata-google-auth >=1.8.2
