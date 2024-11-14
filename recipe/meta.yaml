@@ -1,5 +1,6 @@
 {% set name = "bigframes" %}
 {% set version = "1.26.0" %}
+{% set python_min = python_min|default("3.10") %}
 
 package:
   name: {{ name|lower }}
@@ -50,7 +51,7 @@ requirements:
     - numpy >=1.24.0
     - pandas >=1.5.3
 #ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 17.0.0.
-    - pyarrow >=10.0.1,<19.0
+    - pyarrow >=10.0.1
     - pydata-google-auth >=1.8.2
     - requests >=2.27.1
     - scikit-learn >=1.2.2
