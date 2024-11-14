@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bigframes-{{ version }}.tar.gz
   sha256: 56c0c969f391afea9047a81943dfaf0944bf9a764f0845dacf9a0f55f63b5fb7
 
 build:
@@ -16,11 +16,11 @@ build:
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - cloudpickle >=2.0.0
     - fsspec >=2023.3.0
     - gcsfs >=2023.3.0
@@ -50,7 +50,7 @@ requirements:
     - numpy >=1.24.0
     - pandas >=1.5.3
 #ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 17.0.0.
-    - pyarrow >=10.0.1,<18.0
+    - pyarrow >=10.0.1,<19.0
     - pydata-google-auth >=1.8.2
     - requests >=2.27.1
     - scikit-learn >=1.2.2
@@ -68,6 +68,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
