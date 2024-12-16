@@ -45,7 +45,7 @@ requirements:
     - toolz >=0.1,<1
 #bigframes 0.18.0 has requirement ibis-framework[bigquery]<7.2.0dev,>=7.1.0, but you have ibis-framework 7.2.0.
     #- ibis-bigquery >=9.0.0,<=9.2.0
-    - jellyfish >=0.8.9
+    - jellyfish >=0.8.9,<1.1.2
     - numpy >=1.24.0
     - pandas >=1.5.3
 #ibis-framework 8.0.0 has requirement pyarrow<16,>=2, but you have pyarrow 17.0.0.
